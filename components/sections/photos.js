@@ -1,36 +1,37 @@
+import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classNames from "classnames";
-import Image from "next/image";
 import { useState } from "react";
+import Images from "../../data/images.json";
 
 export default function Photos({ photos }) {
   const [showModal, setShowModal] = useState(false);
   const [modalIndex, setModalIndex] = useState(0);
-  const changeIndex = i => {
-
-  }
   return (
     <>
-      <div id="photos" className="min-h-screen bg-yellow-200 text-center">
-        <h1 className="text-7xl py-10">Photos</h1>
-        <div className="mx-auto p-10 md:px-0 container h-full flex flex-wrap gap-0">
-          {photos.map((url,key) => {
-            return (
-              <div className="h-96 w-full md:w-1/3" key={key} >
-                <img className="w-full h-full object-cover" src={url + "=w256"} onClick={()=>{
-                    setModalIndex(key);
-                    setShowModal(true);
-                }} />
-              </div>
-            );
-          })}
+      <div id="photos" className="min-h-screen z-10 text-center">
+        <div className="mx-auto p-10 md:px-0 container col-count-1 sm:col-count-2 md:col-count-3 lg:col-count-4 col-gap-sm">
+          {
+            Images.map((image,idx)=>(
+                <Image key={idx} src={"/"+image.name} width={image.width} height={image.height} onClick={()=>{
+                  setModalIndex(idx);
+                  setShowModal(true);
+                }}/>
+            ))
+               
+          }
         </div>
-            <a className="inline-block text-2xl bg-white p-4 mb-10 rounded-full" href="https://photos.app.goo.gl/2W6GyJDomNyhywXM8" target="_blank" rel="noopener noreferrer">
-                <FontAwesomeIcon icon={["fas","image"]}/> See More
-            </a>
+        <div className="space-x-10">
+            <button className="inline-block text-2xl border border-black p-4 mb-10  hover:shadow-lg" href="https://photos.app.goo.gl/2W6GyJDomNyhywXM8" target="_blank" rel="noopener noreferrer">
+                See All Collections <FontAwesomeIcon  icon={["fas","caret-right"]}/> 
+            </button>
+            <button className="inline-block text-2xl border border-black p-4 mb-10  hover:shadow-lg" href="https://photos.app.goo.gl/2W6GyJDomNyhywXM8" target="_blank" rel="noopener noreferrer">
+                Submit a Photo
+            </button>
+        </div>
       </div>
       <PhotoModal
-        photos={photos}
+        photos={Images}
         modalIndex={modalIndex}
         setModalIndex={setModalIndex}
         showModal={showModal}
@@ -55,21 +56,24 @@ function PhotoModal({
     }
   return (
     <div className={classNames("bg-smoke-darkest z-50 fixed top-0 left-0 w-full h-full outline-none fade",{"hidden":!showModal})}>
+      <div className="flex h-full flex-col items-center p-24">
+        <div className="max-h-full my-auto">
+        {/* <Image objectFit="contain" src={"/"+Images[modalIndex].name} width={Images[modalIndex].width} height={Images[modalIndex].height}/> */}
+        <Image className="p-24" objectFit="contain" layout="fill" src={"/"+Images[modalIndex].name} />
+        </div>
+      </div> 
       <span
-        className="fixed top-10 right-10 text-7xl text-white"
+        className="fixed top-10 right-10 text-3xl sm:text-4xl md:text-7xl text-white"
         onClick={() => {
           setShowModal(false);
         }}
       >
         &times;
       </span>
-      <div className="flex h-full items-center">
-        <img className="mx-auto my-auto max-h-full" src={photos[modalIndex] + "=w1024"} />
-      </div>
-      <span className="text-5xl text-white fixed top-1/2 right-10" onClick={()=>{changeIndex(1)}}>
+      <span className="text-3xl sm:text-4xl md:text-5xl text-white fixed top-1/2 right-10" onClick={()=>{changeIndex(1)}}>
         <FontAwesomeIcon icon={["fas", "arrow-right"]} />
       </span>
-      <span className="text-5xl text-white fixed top-1/2 left-10" onClick={()=>{changeIndex(-1)}}>
+      <span className="text-3xl sm:text-4xl md:text-5xl text-white fixed top-1/2 left-10" onClick={()=>{changeIndex(-1)}}>
         <FontAwesomeIcon icon={["fas", "arrow-left"]} />
       </span>
     </div>

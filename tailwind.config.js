@@ -2,6 +2,10 @@ module.exports = {
   purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   darkMode: false, // or 'media' or 'class'
   theme: {
+    columnCount: [1,2,3,4],
+    columnGap: { 
+      sm: '0.5rem',
+    },
     extend: {
       colors: {
         'smoke-darkest': 'rgba(0, 0, 0, 0.9)',
@@ -12,13 +16,12 @@ module.exports = {
         'smoke-lighter': 'rgba(0, 0, 0, 0.25)',
         'smoke-lightest': 'rgba(0, 0, 0, 0.1)',
       },
-      backgroundImage: theme => ({
-        'main-background': "url('/main-background.jpg')",
-      })
     },
   },
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    require('tailwindcss-multi-column')(),
+  ],
 }

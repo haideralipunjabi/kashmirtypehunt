@@ -14,12 +14,27 @@
 ::-webkit-scrollbar {
   width: 5px;
 }
-.navbar-items {
-    @apply h-full md:justify-end md:space-x-7 md:space-y-0 md:ml-auto md:mr-5 md:text-2xl md:flex-row items-center md:flex flex-col text-4xl space-y-5
+
+.navbar-item {
+  @apply text-4xl w-screen hover:bg-gray-50 p-5 md:w-auto md:hover:bg-transparent p-0
 }
-.navbar-items > a {
-    @apply md:w-auto h-full p-3 flex items-center hover:bg-gray-300 w-screen justify-center
+a{
+  display: inline-block;
+  position: relative;
 }
-.image {
-    height: min-content;
+a:after {    
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 50%;
+  position: absolute;
+  background: #000;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+}
+a:hover:after { 
+  width: 100%; 
+  left: 0; 
 }

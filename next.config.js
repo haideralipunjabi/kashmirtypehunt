@@ -19,8 +19,5 @@ module.exports = withPlugins([
             use: ["@svgr/webpack"]
         });
         return config;
-    },
-    images: {
-      domains: ['lh3.googleusercontent.com']
     }
 });
