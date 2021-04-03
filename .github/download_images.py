@@ -10,8 +10,12 @@ PHOTOS_COUNT = 25
 
 if os.path.isdir("public/images"):
     os.system("rm -rf public/images")
-os.mkdir("public/images")
 
+if os.path.isdir("data"):
+    os.system("rm -rf data")
+    
+os.mkdir("public/images")
+os.mkdir("data")
 def get_access_token():
     url = "https://oauth2.googleapis.com/token"
     return requests.post(url,data={
