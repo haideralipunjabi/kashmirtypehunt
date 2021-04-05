@@ -22,12 +22,9 @@ export default function Photos({ photos }) {
           }
         </div>
         <div className="space-x-10">
-            <button className="inline-block text-2xl border border-black p-4 mb-10  hover:shadow-lg" href="https://photos.app.goo.gl/2W6GyJDomNyhywXM8" target="_blank" rel="noopener noreferrer">
+            <a className="noanimation inline-block text-2xl border border-black p-4 mb-10  hover:shadow-lg" href="https://photos.app.goo.gl/2W6GyJDomNyhywXM8" target="_blank" rel="noopener noreferrer">
                 See All Collections <FontAwesomeIcon  icon={["fas","caret-right"]}/> 
-            </button>
-            <button className="inline-block text-2xl border border-black p-4 mb-10  hover:shadow-lg" href="https://photos.app.goo.gl/2W6GyJDomNyhywXM8" target="_blank" rel="noopener noreferrer">
-                Submit a Photo
-            </button>
+            </a>
         </div>
       </div>
       <PhotoModal

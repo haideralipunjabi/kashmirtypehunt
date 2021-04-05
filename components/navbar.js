@@ -14,6 +14,7 @@ export default function Navbar() {
           </div>
         </div>
         <div className={classNames("flex-col md:flex md:flex-row md:space-x-18 lg:space-x-20 text-center",menuActive?"flex":"hidden")}>
+            <div className="navbar-item"><a href="https://www.instagram.com/kashmirtypehunt/" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={["fab","instagram"]} /></a></div>
             <div className="navbar-item"><a href="/">Home</a></div>
             <div className="navbar-item"><a href="#photos">Photos</a></div>
             <div className="navbar-item"><a href="#about">About</a></div>

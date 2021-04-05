@@ -18,11 +18,11 @@
 .navbar-item {
   @apply text-4xl w-screen hover:bg-gray-50 p-5 md:w-auto md:hover:bg-transparent p-0
 }
-a{
+a:not(.noanimation){
   display: inline-block;
   position: relative;
 }
-a:after {    
+a:not(.noanimation):after {    
   background: none repeat scroll 0 0 transparent;
   bottom: 0;
   content: "";
@@ -34,7 +34,7 @@ a:after {
   transition: width 0.3s ease 0s, left 0.3s ease 0s;
   width: 0;
 }
-a:hover:after { 
+a:not(.noanimation):hover:after { 
   width: 100%; 
   left: 0; 
 }
