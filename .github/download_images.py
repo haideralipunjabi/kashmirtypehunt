@@ -72,8 +72,6 @@ def download_photos(photos):
         data.append({
             "width": width,
             "height": height,
-            "minwidth": 400,
-            "minheight": height / (width/400)
             "url": url,
             "name": f"images/{idx}.jpg",
             "alt": photo["filename"]
