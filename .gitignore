@@ -8,3 +8,4 @@ data/images.json
 .netlify
 .vercel
 public/workbox*
+public/sw.js.map
