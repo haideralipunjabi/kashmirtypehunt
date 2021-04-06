@@ -9,7 +9,7 @@ export default function Navbar() {
       <nav className={classNames("flex items-center flex-col  md:bg-transparent md:h-auto md:relative",{"bg-gray-100 fixed z-40 top-0 bottom-0 left-0 right-0 h-screen":menuActive})}>
         <div className="flex my-10 items-center">
           <img className="w-32 md:w-64" src="/logo.svg" />
-          <div className="absolute right-10 text-5xl  md:hidden">
+          <div className="absolute right-10 text-4xl  md:hidden">
             <FontAwesomeIcon icon={["fas",menuActive?"times":"bars"]} onClick={()=>{setMenuActive(!menuActive)}}/>
           </div>
         </div>
