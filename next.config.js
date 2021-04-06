@@ -19,5 +19,8 @@ module.exports = withPlugins([
             use: ["@svgr/webpack"]
         });
         return config;
+    },
+    images: {
+      imageSizes: [16, 32, 48, 64, 96, 128, 256, 384,400,512,800,1024],
     }
 });

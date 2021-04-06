@@ -50,6 +50,7 @@ def get_all_photos(access_token):
 def download_photos(photos):
     data = []
     for idx,photo in enumerate(photos):
+
         width = int(photo["mediaMetadata"]["width"])
         height = int(photo["mediaMetadata"]["height"])
         url = photo["baseUrl"]
@@ -65,13 +66,17 @@ def download_photos(photos):
                 ratio = height / 1080
                 height = 1080
                 width = round(width /ratio)
+
             url += f"=h{height}"
         wget.download(url,f"public/images/{idx}.jpg")
         data.append({
             "width": width,
             "height": height,
+            "minwidth": 400,
+            "minheight": height / (width/400)
             "url": url,
-            "name": f"images/{idx}.jpg"
+            "name": f"images/{idx}.jpg",
+            "alt": photo["filename"]
         })
     json.dump(data,open("data/images.json","w"))
 

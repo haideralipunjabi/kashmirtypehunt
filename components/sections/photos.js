@@ -13,7 +13,7 @@ export default function Photos({ photos }) {
         <div className="mx-auto p-10 md:px-0 container col-count-1 sm:col-count-2 md:col-count-3 lg:col-count-4 col-gap-sm">
           {
             Images.map((image,idx)=>(
-                <Image key={idx} src={"/"+image.name} width={image.width} height={image.height} onClick={()=>{
+                <Image alt={image.alt} key={idx} src={"/"+image.name} width={400} height={image.height / (image.width/400)} onClick={()=>{
                   setModalIndex(idx);
                   setShowModal(true);
                 }}/>

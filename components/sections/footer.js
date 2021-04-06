@@ -1,11 +1,14 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import Image from "next/image";
 export default function Footer() {
   return (
     <footer className="text-center pt-16 pb-8 text-l sm:text-xl md:text-3xl">
       <div className="flex container mx-auto justify-around mb-10">
         <div className="w-1/5">
-          <img className="w-40 mx-auto" src="/logo.svg" />
+          {/* <img alt="Kashmir Type Hunt Logo" className="w-40 mx-auto" src="/logo.svg" /> */}
+          <div className="w-24 md:w-40 mx-auto" >
+            <Image alt="Kashmir Type Hunt Logo" src="/logo.svg" height={162} width={160}/>
+          </div>
         </div>
         <div className="w-3/5 flex flex-col w-auto space-y-10">
           <div className="flex justify-between flex-wrap">
@@ -31,7 +34,7 @@ export default function Footer() {
           <div className="flex self-center items-center">
             <span>Stay Connected at</span>
             <a
-              className="noanimation inline-block text-l sm:text-xl md:text-2xl border border-black p-2 mx-4 hover:shadow-lg text-center"
+              className="noanimation inline-block text-l sm:text-xl md:text-2xl border border-black p-2 ml-4 hover:shadow-lg text-center"
               href="https://instagram.com/kashmirtypehunt"
               target="_blank"
               rel="noopener noreferrer"

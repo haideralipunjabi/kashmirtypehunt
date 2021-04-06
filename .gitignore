@@ -9,3 +9,4 @@ data/images.json
 .vercel
 public/workbox*
 public/sw.js.map
+.vscode
