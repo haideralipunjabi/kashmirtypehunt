@@ -18,12 +18,13 @@ os.mkdir("public/images")
 os.mkdir("data")
 def get_access_token():
     url = "https://oauth2.googleapis.com/token"
-    return requests.post(url,data={
+    data =  requests.post(url,data={
         "grant_type":"refresh_token",
         "client_id":GOOGLE_OAUTH_CLIENT_ID,
         "client_secret":GOOGLE_OAUTH_CLIENT_SECRET,
         "refresh_token":GOOGLE_REFRESH_TOKEN
-    }).json()["access_token"]
+    }).json()
+    return data["access_token"]
 
 def get_all_photos(access_token):
     url = "https://photoslibrary.googleapis.com/v1/mediaItems:search"
