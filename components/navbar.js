@@ -75,7 +75,7 @@ export default function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Submit
+              Upload
             </a>
           </div>
           <div className="navbar-item">
