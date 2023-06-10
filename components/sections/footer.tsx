@@ -1,16 +1,17 @@
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
+import logo from "../public/logo.svg";
+
 export default function Footer() {
   return (
     <footer className="text-l pb-8 pt-16 text-center sm:text-xl md:text-3xl">
       <div className="container mx-auto mb-10 flex justify-around">
         <div className="w-1/5">
-          {/* <img alt="Kashmir Type Hunt Logo" className="w-40 mx-auto" src="/logo.svg" /> */}
           <div className="mx-auto w-24 md:w-40">
             <Image
               alt="Kashmir Type Hunt Logo"
-              src="/logo.svg"
+              src={logo}
               height={162}
               width={160}
             />
