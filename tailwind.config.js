@@ -1,12 +1,21 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
-  darkMode: false, // or 'media' or 'class'
+  content: [
+    './pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
+  ],
   theme: {
-    columnCount: [1,2,3,4],
+     columnCount: [1,2,3,4],
     columnGap: { 
       sm: '0.5rem',
     },
     extend: {
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'gradient-conic':
+          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      },
       colors: {
         'smoke-darkest': 'rgba(0, 0, 0, 0.9)',
         'smoke-darker': 'rgba(0, 0, 0, 0.75)',
@@ -17,9 +26,6 @@ module.exports = {
         'smoke-lightest': 'rgba(0, 0, 0, 0.1)',
       },
     },
-  },
-  variants: {
-    extend: {},
   },
   plugins: [
     require('tailwindcss-multi-column')(),

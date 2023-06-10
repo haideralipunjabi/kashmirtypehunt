@@ -1,38 +1,37 @@
-import { useEffect, useState } from "react";
+"use client";
+import { useState } from "react";
 import classNames from "classnames";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
+import logo from "../public/logo.svg";
+import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 
 export default function Navbar() {
   const [menuActive, setMenuActive] = useState(false);
-  // const [donationButton, setDonationButton] = useState();
-
-  // useEffect(()=>{
-  //   setDonationButton(<form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_Gy43qTRd8zCxZZ" async ></script></form>)
-  // },[])
   return (
     <>
       <nav
         className={classNames(
-          "flex items-center flex-col  md:bg-transparent md:h-auto md:relative",
+          "flex flex-col items-center  md:relative md:h-auto md:bg-transparent",
           {
-            "bg-gray-100 fixed z-40 top-0 bottom-0 left-0 right-0 h-screen": menuActive,
+            "fixed bottom-0 left-0 right-0 top-0 z-40 h-screen bg-gray-100":
+              menuActive,
           }
         )}
       >
-        <div className="flex my-10 items-center">
-          {/* <img alt="Kashmir Type Hunt Logo" className="w-32 md:w-64" src="/logo.svg" /> */}
+        <div className="my-10 flex items-center">
           <div className="w-32 md:w-64">
             <Image
               alt="Kashmir Type Hunt Logo"
-              src="/logo.svg"
+              src={logo}
               width={256}
               height={259}
             />
           </div>
           <div className="absolute right-10 text-4xl  md:hidden">
             <FontAwesomeIcon
-              icon={["fas", menuActive ? "times" : "bars"]}
+              icon={menuActive ? faTimes : faBars}
               onClick={() => {
                 setMenuActive(!menuActive);
               }}
@@ -41,7 +40,7 @@ export default function Navbar() {
         </div>
         <div
           className={classNames(
-            "flex-col md:flex md:flex-row md:space-x-18 lg:space-x-20 text-center",
+            "md:space-x-18 flex-col text-center md:flex md:flex-row lg:space-x-20",
             menuActive ? "flex" : "hidden"
           )}
         >
@@ -51,7 +50,7 @@ export default function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FontAwesomeIcon icon={["fab", "instagram"]} />
+              <FontAwesomeIcon icon={faInstagram} />
             </a>
           </div>
           <div className="navbar-item">
@@ -79,7 +78,7 @@ export default function Navbar() {
             </a>
           </div>
           <div className="navbar-item">
-          <a
+            <a
               href="https://rzp.io/l/dZlMT8BYc"
               target="_blank"
               rel="noopener noreferrer"

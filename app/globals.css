@@ -11,18 +11,21 @@
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
 }
+
 ::-webkit-scrollbar {
   width: 5px;
 }
 
 .navbar-item {
-  @apply text-4xl w-screen hover:bg-gray-50 p-5 md:w-auto md:hover:bg-transparent p-0
+  @apply w-screen p-0 p-5 text-4xl hover:bg-gray-50 md:w-auto md:hover:bg-transparent;
 }
-a:not(.noanimation){
+
+a:not(.noanimation) {
   display: inline-block;
   position: relative;
 }
-a:not(.noanimation):after {    
+
+a:not(.noanimation):after {
   background: none repeat scroll 0 0 transparent;
   bottom: 0;
   content: "";
@@ -34,7 +37,8 @@ a:not(.noanimation):after {
   transition: width 0.3s ease 0s, left 0.3s ease 0s;
   width: 0;
 }
-a:not(.noanimation):hover:after { 
-  width: 100%; 
-  left: 0; 
+
+a:not(.noanimation):hover:after {
+  width: 100%;
+  left: 0;
 }
