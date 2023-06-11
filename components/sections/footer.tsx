@@ -1,7 +1,7 @@
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
-import logo from "../public/logo.svg";
+import logo from "../../public/logo.svg";
 
 export default function Footer() {
   return (
