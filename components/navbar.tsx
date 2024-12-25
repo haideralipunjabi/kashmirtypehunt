@@ -79,11 +79,11 @@ export default function Navbar() {
           </div>
           <div className="navbar-item">
             <a
-              href="https://rzp.io/l/dZlMT8BYc"
+              href="https://kashmirtypehunt.dm2buy.com/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Donate
+              Store
             </a>
           </div>
         </div>
